@@ -27,7 +27,7 @@ src/
 ## Environment Variables
 Copy `.env.example` to `.env.local` and fill in:
 ```
-VITE_SUPABASE_URL=https://yiikzdzwuwgmanpzdvjs.supabase.co
+VITE_SUPABASE_URL=your-supabase-project-url
 VITE_SUPABASE_ANON_KEY=your-publishable-key
 ```
 
