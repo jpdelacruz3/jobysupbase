@@ -38,9 +38,26 @@ export default function Login() {
     setLoading(false);
   }
 
+  async function handleGoogleLogin() {
+    setError(null);
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}/dashboard`,
+      },
+    });
+    if (error) setError(error.message);
+  }
+
   return (
     <main>
       <h1>{mode === 'login' ? 'Sign In' : 'Create Account'}</h1>
+
+      <button type="button" onClick={handleGoogleLogin}>
+        Sign in with Google
+      </button>
+
+      <hr />
 
       <form onSubmit={handleSubmit} noValidate>
         <label htmlFor="email">Email</label>
