@@ -70,7 +70,7 @@ App runs at http://localhost:5173
 - Environment variables set in Netlify UI: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
 
 ## Google OAuth Config
-- Supabase callback URL: `https://yiikzdzwuwgmanpzdvjs.supabase.co/auth/v1/callback`
+- Supabase callback URL: `https://<project-id>.supabase.co/auth/v1/callback`
 - Supabase Site URL: `https://react-sup.netlify.app`
 - Supabase Redirect URLs whitelist:
   - `http://localhost:5173/**`
