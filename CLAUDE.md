@@ -61,12 +61,18 @@ App runs at http://localhost:5173
 4. `ProtectedRoute` in `App.tsx` checks session before allowing `/dashboard`
 5. `TodoManager.tsx` uses `session.user.id` to scope all DB queries
 
-## Next Session — Netlify Deployment + CI/CD
-- [ ] Initialize a GitHub repository and push current code
-- [ ] Connect GitHub repo to Netlify
-- [ ] Set Netlify environment variables (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
-- [ ] Configure build settings in Netlify (build command: `npm run build`, publish dir: `dist`)
-- [ ] Add `netlify.toml` for SPA redirect rules so react-router routes work on refresh
-- [ ] Set up CI/CD so every push to `main` triggers an auto-deploy on Netlify
-- [ ] Update Google OAuth redirect URI to include the live Netlify URL
-- [ ] Update Supabase allowed redirect URLs to include the live Netlify URL
+## Deployment — Netlify
+- Live URL: https://react-sup.netlify.app
+- GitHub repo: https://github.com/jpdelacruz3/jobysupbase
+- CI/CD: every push to `main` triggers an auto-deploy on Netlify
+- Build command: `npm run build`, publish dir: `dist`
+- SPA redirects configured in `netlify.toml` (all routes → `index.html`)
+- Environment variables set in Netlify UI: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+
+## Google OAuth Config
+- Supabase callback URL: `https://yiikzdzwuwgmanpzdvjs.supabase.co/auth/v1/callback`
+- Supabase Site URL: `https://react-sup.netlify.app`
+- Supabase Redirect URLs whitelist:
+  - `http://localhost:5173/**`
+  - `https://react-sup.netlify.app/**`
+- Google Cloud Console authorized JavaScript origins: `http://localhost:5173`, `https://react-sup.netlify.app`
